@@ -1,0 +1,8 @@
+{
+  "name": "Motoharujap/modniybot",
+  "keywords": ["telegram", "bot"],
+  "type": "project",
+  "require": {
+    "irazasyed/telegram-bot-sdk": "dev-master"
+  }
+}
