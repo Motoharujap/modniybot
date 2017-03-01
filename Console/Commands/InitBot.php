@@ -3,6 +3,7 @@
 namespace Artisan\Console\Commands;
 
 use Illuminate\Console\Command;
+use Telegram\Bot\Api;
 
 class InitBot extends Command
 {
@@ -35,6 +36,8 @@ class InitBot extends Command
      */
     public function handle()
     {
-        $foo = 'bar';
+        $telegram = new Api(getenv('BOT_TOKEN'));
+
+        //$telegram->setWebhook();
     }
 }
