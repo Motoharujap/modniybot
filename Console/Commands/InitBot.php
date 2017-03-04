@@ -19,7 +19,7 @@ class InitBot extends Command
      *
      * @var string
      */
-    protected $description = 'Bot initialisation';
+    protected $description = 'Set webhooks';
 
     /**
      * Create a new command instance.
@@ -37,7 +37,12 @@ class InitBot extends Command
     public function handle()
     {
         $telegram = new Api(getenv('BOT_TOKEN'));
+        $params = [
+            'url' => getenv('BOT_URL'),
+            'certificate' => getenv('CERTIFICATE'),
+        ];
+        $response = $telegram->setWebhook($params);
 
-        //$telegram->setWebhook();
+        $this->info($response->getResult());
     }
 }

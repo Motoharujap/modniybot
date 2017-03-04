@@ -1,6 +1,6 @@
 <?php
 
-$fromPackage = __DIR__."/../../autoload.php";
+$fromPackage = __DIR__."/vendor/autoload.php";
 
 if (file_exists($fromPackage)) {
     require_once $fromPackage;

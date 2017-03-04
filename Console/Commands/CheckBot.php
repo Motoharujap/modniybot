@@ -19,7 +19,7 @@ class CheckBot extends Command
      *
      * @var string
      */
-    protected $description = 'Check bot token';
+    protected $description = 'Check bot her webhook status';
 
     /**
      * Create a new command instance.
@@ -40,14 +40,8 @@ class CheckBot extends Command
     {
         $token = getenv('BOT_TOKEN');
 
-        try{
-            $telegram = new Api($token);
-
-            $bot = $telegram->getMe();
-        }catch(\Exception $e){
-            $this->error('error: ' . $e->getMessage());
-            return;
-        }
+        $telegram = new Api($token);
+        $bot = $telegram->getMe();
 
         $this->info('All right');
     }
