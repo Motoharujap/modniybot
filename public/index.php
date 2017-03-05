@@ -1,6 +1,7 @@
 <?php
 
 require_once "./../bootstrap.php";
-$count = (int)file_get_contents(__DIR__.'/../logs.txt');
+$countFilePath = STORAGE_PATH . '/logs/counter';
+$count = (int)file_get_contents($countFilePath);
 echo(++$count);
-file_put_contents(__DIR__.'/../logs.txt', $count);
+file_put_contents($countFilePath, $count);

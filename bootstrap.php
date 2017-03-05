@@ -10,3 +10,5 @@ if (file_exists($fromPackage)) {
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
+
+define('STORAGE_PATH', __DIR__.'/storage');
