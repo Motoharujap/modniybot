@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require_once "bootstrap.php";
+require_once "bootstrap/bootstrap.php";
 
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;

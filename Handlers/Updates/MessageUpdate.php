@@ -12,7 +12,7 @@ class MessageUpdate
         $this->message = $update['message'];
     }
 
-    public function process()
+    public function handle()
     {
 
     }
