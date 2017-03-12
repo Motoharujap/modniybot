@@ -1,5 +1,5 @@
 <?php
-namespace Handlers\Updates;
+namespace Components\Handlers\Updates;
 
 class MessageUpdate
 {

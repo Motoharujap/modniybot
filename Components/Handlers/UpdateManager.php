@@ -1,8 +1,8 @@
 <?php
 
-namespace Handlers;
+namespace Components\Handlers;
 
-use Handlers\Updates\MessageUpdate;
+use Components\Handlers\Updates\MessageUpdate;
 
 class UpdateHandler
 {

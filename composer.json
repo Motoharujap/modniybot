@@ -6,8 +6,12 @@
     "irazasyed/telegram-bot-sdk": "dev-master",
     "moon/artisan": "^1.8",
     "vlucas/phpdotenv": "^2.4",
-    "monolog/monolog": "^1.22",
-    "keradus/psr4autoloader": "^1.22"
+    "monolog/monolog": "^1.22"
+  },
+  "autoload": {
+    "psr-4": {
+      "Components\\": "Components/"
+    }
   },
   "scripts": {
     "post-create-project-cmd": [

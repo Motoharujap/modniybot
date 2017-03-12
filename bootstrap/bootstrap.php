@@ -11,7 +11,6 @@ if (file_exists($fromPackage)) {
 require_once "./constants.php";
 
 $boottstrapers = [
-    'ClassLoader',
     'DetectEnvironment',
     'ErrorHandler'
 ];

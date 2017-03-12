@@ -1,5 +1,5 @@
 <?php
-namespace Actions;
+namespace Components\Actions;
 
 interface ActionInterface
 {
