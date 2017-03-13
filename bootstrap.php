@@ -1,6 +1,6 @@
 <?php
 
-$fromPackage = __DIR__."/../vendor/autoload.php";
+$fromPackage = __DIR__."/vendor/autoload.php";
 
 if (file_exists($fromPackage)) {
     require_once $fromPackage;
@@ -8,11 +8,12 @@ if (file_exists($fromPackage)) {
     require_once "./vendor/autoload.php";
 }
 
-require_once "./constants.php";
+define('STORAGE_PATH', __DIR__.'/storage');
+define('ROOT_DIR', __DIR__);
 
 $boottstrapers = [
-    'DetectEnvironment',
-    'ErrorHandler'
+    'Components\Bootstrap\DetectEnvironment',
+    'Components\Bootstrap\ErrorHandler'
 ];
 
 foreach ($boottstrapers as $boottstraper) {

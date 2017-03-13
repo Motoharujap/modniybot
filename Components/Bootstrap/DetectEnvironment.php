@@ -1,4 +1,5 @@
 <?php
+namespace Components\Bootstrap;
 
 use Dotenv\Dotenv;
 
