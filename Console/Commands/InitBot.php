@@ -39,7 +39,7 @@ class InitBot extends Command
         $telegram = new Api(getenv('BOT_TOKEN'));
         $params = [
             'url' => getenv('BOT_URL'),
-            'certificate' => STORAGE_PATH . '/key/' . getenv('CERTIFICATE'),
+            'certificate' => getenv('CERTIFICATE'),
         ];
         $response = $telegram->setWebhook($params);
 

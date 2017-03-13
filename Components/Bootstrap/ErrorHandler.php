@@ -20,9 +20,8 @@ class ErrorHandler
     {
         if(!self::$bootstrapped) {
             self::$logger = new Logger('error_log');
-            self::$logger->pushHandler(new StreamHandler(STORAGE_PATH . '/log/exception.log', Logger::WARNING));
-            self::$logger->pushHandler(new StreamHandler(STORAGE_PATH . '/log/error.log', Logger::ERROR));
-            self::$logger->pushHandler(new StreamHandler(STORAGE_PATH . '/log/shutdown.log', Logger::CRITICAL));
+            self::$logger->pushHandler(new StreamHandler(STORAGE_PATH . '/logs/error.log', Logger::ERROR));
+            self::$logger->pushHandler(new StreamHandler(STORAGE_PATH . '/logs/shutdown.log', Logger::CRITICAL));
 
             error_reporting(-1);
 
@@ -38,12 +37,12 @@ class ErrorHandler
 
     public static function handleError($level, $message, $file = '', $line = 0, $context = [])
     {
-        self::$logger->addError($message, $context);
+        self::$logger->addError($message);
     }
 
     public static function handleException($e)
     {
-        self::$logger->addWarning($e->getMessage());
+        self::$logger->addError($e->getMessage());
     }
 
     public static function handleShutdown()

@@ -3,6 +3,8 @@
 define('DEBUG', False);
 
 require_once "./../bootstrap.php";
-
-$tt = new Components\Handlers\UpdateHandler();
-$tt->processUpdate(json_decode(file_get_contents('php://input'), true));
+$tt = $foo;
+if($message = json_decode(file_get_contents('php://input'), true)) {
+    $tt = new Components\UpdateManager();
+    $tt->processUpdate($message);
+}
