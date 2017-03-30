@@ -14,6 +14,7 @@ class UpdateManager
     {
         $update = new Update($update);
         $this->getApi()->processCommand($update);
+        $this->handleUpdate($update);
     }
 
     public function getApi()
@@ -28,7 +29,7 @@ class UpdateManager
         return $this->telegram;
     }
 
-    public function saveUpdate($update)
+    public function handleUpdate($update)
     {
 
     }
