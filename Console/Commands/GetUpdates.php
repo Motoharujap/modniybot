@@ -39,5 +39,6 @@ class GetUpdates extends Command
      */
     public function handle()
     {
+        // todo
     }
 }

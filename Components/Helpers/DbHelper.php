@@ -6,18 +6,35 @@ use SimpleCrud\SimpleCrud;
 
 class DbHelper
 {
+    /**
+     * @var se
+     */
     private static $instance;
 
+    /**
+     * @var SimpleCrud
+     */
     private $db;
+
+    /**
+     * @var \PDO
+     */
+    private $pdo;
 
     public static function getInstance()
     {
         if(!self::$instance){
             $obj = self::$instance = new self();
-            $obj->db = new SimpleCrud(new \PDO('sqlite:'.STORAGE_PATH.'/database/main.sq3'));
+            $obj->pdo = new \PDO('sqlite:'.STORAGE_PATH.'/database/main.sq3');
+            $obj->db = new SimpleCrud($obj->pdo);
         }
 
         return self::$instance;
+    }
+
+    public function execSql($sql)
+    {
+        $this->pdo->exec($sql);
     }
 
 }

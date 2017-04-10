@@ -18,7 +18,7 @@ class ErrorHandler
 
     public static function bootstrap()
     {
-        if(!self::$bootstrapped) {
+        if(!self::$bootstrapped && !self::isCli()) {
             self::$logger = new Logger('error_log');
             self::$logger->pushHandler(new StreamHandler(STORAGE_PATH . '/logs/error.log', Logger::ERROR));
             self::$logger->pushHandler(new StreamHandler(STORAGE_PATH . '/logs/shutdown.log', Logger::CRITICAL));
@@ -52,8 +52,13 @@ class ErrorHandler
         }
     }
 
-    protected static function isFatal($type)
+    private static function isFatal($type)
     {
         return in_array($type, [E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE]);
+    }
+
+    private static function isCli()
+    {
+        return php_sapi_name() == 'cli';
     }
 }
