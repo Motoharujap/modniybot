@@ -6,8 +6,13 @@ use SimpleCrud\SimpleCrud;
 
 class DbHelper
 {
+    const USERS_TABLE = 'users';
+    const CHATS_TABLE = 'chats';
+    const MESSAGES_TABLE = 'messages';
+    const UPDATES_TABLE = 'updates';
+
     /**
-     * @var se
+     * @var self
      */
     private static $instance;
 
@@ -35,6 +40,11 @@ class DbHelper
     public function execSql($sql)
     {
         $this->pdo->exec($sql);
+    }
+
+    public function saveFrom($table, $data)
+    {
+        // todo
     }
 
 }

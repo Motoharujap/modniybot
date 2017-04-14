@@ -47,30 +47,31 @@ class ConfigureDb extends Command
     private function getQueries()
     {
         return [
-            'CREATE TABLE IF NOT EXISTS users (
-                        id   INTEGER PRIMARY KEY,
+            'CREATE TABLE IF NOT EXISTS ' . DbHelper::USERS_TABLE . ' (
+                        id   VARCHAR (255) PRIMARY KEY,
                         first_name TEXT NOT NULL,
                         last_name TEXT DEFAULT NULL,
-                        username TEXT DEFAULT NULL,                     
+                        username TEXT DEFAULT NULL                   
                       )',
-            'CREATE TABLE IF NOT EXISTS chats (
-                        id   INTEGER PRIMARY KEY,
+            'CREATE TABLE IF NOT EXISTS ' . DbHelper::CHATS_TABLE . ' (
+                        id   VARCHAR (255) PRIMARY KEY,
                         `type` VARCHAR (255) NOT NULL,
                         title TEXT DEFAULT NULL,
                         username TEXT DEFAULT NULL,
                         first_name TEXT DEFAULT NULL,
-                        last_name TEXT DEFAULT NULL,          
+                        last_name TEXT DEFAULT NULL        
                       )',
-            'CREATE TABLE IF NOT EXISTS messages (
-                        id   INTEGER PRIMARY KEY AUTO_INCREMENT,
-                        message_id 
-                        `type` VARCHAR (255) NOT NULL,
-                        title TEXT DEFAULT NULL,
-                        username TEXT DEFAULT NULL,
-                        first_name TEXT DEFAULT NULL,
-                        last_name TEXT DEFAULT NULL,          
+            'CREATE TABLE IF NOT EXISTS ' . DbHelper::MESSAGES_TABLE . ' (
+                        id   INTEGER PRIMARY KEY AUTOINCREMENT,
+                        message_id VARCHAR (255) NOT NULL,
+                        `from` VARCHAR (255) DEFAULT NULL,
+                        chat VARCHAR (255) DEFAULT NULL,
+                        update_id VARCHAR (255) NOT NULL
                       )',
-            '',
-        ]; # todo
+            'CREATE TABLE IF NOT EXISTS ' . DbHelper::UPDATES_TABLE . ' (
+                        update_id VARCHAR (255) PRIMARY KEY,
+                        content TEXT NOT NULL
+                      )',
+        ];
     }
 }

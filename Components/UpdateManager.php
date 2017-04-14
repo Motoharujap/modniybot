@@ -1,10 +1,9 @@
 <?php
-
 namespace Components;
 
 use Components\Commands\StatisticCommand;
+use Components\CustomObjects\CustomUpdate;
 use Telegram\Bot\Api;
-use Telegram\Bot\Objects\Update;
 
 class UpdateManager
 {
@@ -12,7 +11,7 @@ class UpdateManager
 
     public function processUpdate($update)
     {
-        $update = new Update($update);
+        $update = new CustomUpdate($update);
         $this->getApi()->processCommand($update);
         $this->handleUpdate($update);
     }
@@ -29,8 +28,11 @@ class UpdateManager
         return $this->telegram;
     }
 
+    /**
+     * @param $update CustomUpdate
+     */
     public function handleUpdate($update)
     {
-
+        $update->save();
     }
 }
