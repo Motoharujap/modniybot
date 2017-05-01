@@ -9,7 +9,12 @@ class CustomUser extends User
 {
     public function save()
     {
-        $data = []; // todo
-        DbHelper::getInstance()->saveFrom(DbHelper::USERS_TABLE, $data);
+        $data = [
+            'id' => $this->getId(),
+            'firstName' => $this->getFirstName(),
+            'lastName' => $this->getLastName(),
+            'username'=> $this->getUsername()
+        ];
+        DbHelper::getInstance()->saveRecord(DbHelper::USERS_TABLE, $data);
     }
 }

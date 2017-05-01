@@ -41,7 +41,10 @@ class CustomUpdate extends Update
             }
         }
 
-        $data = []; // todo
-        DbHelper::getInstance()->saveFrom(DbHelper::UPDATES_TABLE, $data);
+        $data = [
+            'updateId' => $this->getUpdateId(),
+            'content' => '' // todo
+        ];
+        DbHelper::getInstance()->saveRecord(DbHelper::UPDATES_TABLE, $data);
     }
 }

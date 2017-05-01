@@ -42,9 +42,9 @@ class DbHelper
         $this->pdo->exec($sql);
     }
 
-    public function saveFrom($table, $data)
+    public function saveRecord($table, $data)
     {
-        // todo
+        $this->db->$table->create($data);
     }
 
 }

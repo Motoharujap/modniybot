@@ -9,7 +9,14 @@ class CustomChat extends Chat
 {
     public function save()
     {
-        $data = []; // todo
-        DbHelper::getInstance()->saveFrom(DbHelper::USERS_TABLE, $data);
+        $data = [
+            'id' => $this->getId(),
+            'type' => $this->getType(),
+            'title' => $this->getTitle(),
+            'username' => $this->getUsername(),
+            'firstName' => $this->getFirstName(),
+            'lastName' => $this->getLastName(),
+        ];
+        DbHelper::getInstance()->saveRecord(DbHelper::USERS_TABLE, $data);
     }
 }

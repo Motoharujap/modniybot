@@ -46,8 +46,13 @@ class CustomMessage extends Message
 
     public function save()
     {
-        $data = []; // todo
-        DbHelper::getInstance()->saveFrom(DbHelper::MESSAGES_TABLE, $data);
+        $data = [
+            'messageId' => $this->getMessageId(),
+            'from' => $this->getFrom()->getId(),
+            'chat' => $this->getChat()->getId(),
+            'updateId' => '', // todo
+        ];
+        DbHelper::getInstance()->saveRecord(DbHelper::MESSAGES_TABLE, $data);
     }
 
 }
