@@ -43,6 +43,6 @@ class InitBot extends Command
         ];
         $response = $telegram->setWebhook($params);
 
-        $this->info($response->getResult());
+        $this->info($response->getResult() ? 'so, all right, i think' : 'something went wrong((');
     }
 }

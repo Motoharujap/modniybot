@@ -20,7 +20,7 @@ class GetUpdates extends Command
      *
      * @var string
      */
-    protected $description = 'Load and handle updates for bot';
+    protected $description = 'Load and handle updates for bot @todo';
 
     /**
      * Create a new command instance.

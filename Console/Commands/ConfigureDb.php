@@ -12,7 +12,7 @@ class ConfigureDb extends Command
      *
      * @var string
      */
-    protected $signature = 'initDb';
+    protected $signature = 'db:initDb';
 
     /**
      * The console command description.

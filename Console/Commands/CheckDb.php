@@ -5,21 +5,21 @@ namespace Artisan\Console\Commands;
 use Illuminate\Console\Command;
 use Telegram\Bot\Api;
 
-class CheckBot extends Command
+class CheckDb extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'bot:check';
+    protected $signature = 'db:check';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Check bot her webhook status @todo';
+    protected $description = 'show count of each entities in database @todo';
 
     /**
      * Create a new command instance.
